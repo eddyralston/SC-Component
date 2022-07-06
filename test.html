@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script type="module">
+    import {Component,html} from '/Component.js'
+
+var login = Component({
+    html:`<div>
+        <ul child="list"></ul>
+        <input data='test'>
+        <button on="click:send">submit</button>
+    </div>`,
+    construct($){
+        $.function('send',()=>{
+            $.child.list.append(html(`<li>${$.data.test}</li>`))
+        })
+        console.log($)
+    }
+})
+
+document.body.append(login)
+</script>
+</body>
+</html>
